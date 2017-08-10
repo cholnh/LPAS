@@ -81,9 +81,9 @@ L2: num := r1                   -- 변수 num에 입력값 저장
 ### (1) LPA 언어 소개
 - 어휘의 구성
 &ensp;&ensp;o 레지스터  
-&ensp;&ensp;&ensp;&ensp;* r1, r2와 같은 정수 레지스터와 f1, f2와 같은 실수 레지스터가 있다  
-&ensp;&ensp;&ensp;&ensp;* 정수 레지스터는 1~8번, r1~r8까지 사용할 수 있음 (다른 번호는 오류 발생)  
-&ensp;&ensp;&ensp;&ensp;* 실수 레지스터는 1~4번, f1~f4까지 사용할 수 있음 (다른 번호는 오류 발생)  
+&ensp;&ensp;&ensp;&ensp;- r1, r2와 같은 정수 레지스터와 f1, f2와 같은 실수 레지스터가 있다  
+&ensp;&ensp;&ensp;&ensp;- 정수 레지스터는 1~8번, r1~r8까지 사용할 수 있음 (다른 번호는 오류 발생)  
+&ensp;&ensp;&ensp;&ensp;- 실수 레지스터는 1~4번, f1~f4까지 사용할 수 있음 (다른 번호는 오류 발생)  
 &ensp;&ensp;o 변수이름  
 &ensp;&ensp;&ensp;&ensp;* 이름에 해당하는 토큰 (키워드, 레지스터 제외)  
 &ensp;&ensp;o 라벨  
