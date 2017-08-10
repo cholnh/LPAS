@@ -1,5 +1,3 @@
-# LPAS
-LPAS: Little Pseudo Assembly Language Simulator
 
 ## Index
 - [Intro Little Pseudo Assembly Language](#intro-little-pseudo-assembly-language)
