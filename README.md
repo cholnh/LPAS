@@ -100,3 +100,21 @@ L2: num := r1                   -- 변수 num에 입력값 저장
 &ensp;&ensp;&ensp;&ensp;-&ensp;: (라벨 바로 뒤에)  
 &ensp;&ensp;&ensp;&ensp;-&ensp;& (주소연산), *(간접접근연산)  
   
+  
+- 구문 구조
+&ensp;&ensp;o 기본 구조
+&ensp;&ensp;&ensp;&ensp;-&ensp;program
+&ensp;&ensp;&ensp;&ensp;-&ensp;...
+&ensp;&ensp;&ensp;&ensp;-&ensp;end
+&ensp;&ensp;&ensp;&ensp;-&ensp;문장의 연속 : 문장의 종류는 초기화, 지정, goto, if..goto, print, input
+&ensp;&ensp;o 변수 초기화부분
+&ensp;&ensp;&ensp;&ensp;-&ensp;변수 초기화 : 변수 이름 := 값
+&ensp;&ensp;&ensp;&ensp;-&ensp;변수 이름에 해당하는 메모리가 할당되고 그 값으로 초기화도니다
+&ensp;&ensp;&ensp;&ensp;-&ensp;메모리 할당은 앞에서부터 차례로 할당되며 주소는 1씩 증가한다
+&ensp;&ensp;&ensp;&ensp;-&ensp;값이 정수면 정수 메모리, 실수면 실수 메모리가 할당된다
+&ensp;&ensp;o 배열 선언 : 타입과 이름, 크기로 선언
+&ensp;&ensp;&ensp;&ensp;-&ensp;해당 타입으로 크기만큼 배열이 메모리에 할당된다
+&ensp;&ensp;&ensp;&ensp;-&ensp;배열은 주소+오프셋으로 간접접근 가능한다
+&ensp;&ensp;&ensp;&ensp;-&ensp;값은 0으로 할당된다
+&ensp;&ensp;o 계산부
+&ensp;&ensp;&ensp;&ensp;-&ensp;지정문을 이용하여 값을 지정, 또는 계산할 수 있다
