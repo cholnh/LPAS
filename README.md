@@ -143,7 +143,7 @@ L2: num := r1                   -- 변수 num에 입력값 저장
 &ensp;&ensp;&ensp;&ensp;-&ensp;`*r1 := r2` 또는 `*r1 := f2`, `*r1 := 3.0`, `r2 := *r1`  
 &ensp;&ensp;&ensp;&ensp;-&ensp;배열 원소의 주소는 배열주소 + 오프셋(정수 레지스터)로 표시  
 
-![ex1]({{ site.url }}/assets/ex1.png)  
+![ex1](/assets/ex1.png)  
 
 
 ### (2) 시뮬레이터 가상기계 소개  
@@ -154,11 +154,11 @@ L2: num := r1                   -- 변수 num에 입력값 저장
 &ensp;&ensp;o 타입 : 가상기계에서 다룰 수 있는 타입은 정수와 실수형임. 모든 연산은 동일한 타입에 대해서만 가능 (예외는 타입 변환 지정문)  
 &ensp;&ensp;o pc 주소 : 다음 수행할 문장의 위치를 가지는 레지스터. 편집창에서 노란 줄로 표시됨  
 
-![ex2]({{ site.url }}/assets/ex2.png)
+![ex2](/assets/ex2.png)
 
 ### (3) 문장의 종류
 
-![ex3]({{ site.url }}/assets/ex3.png)
+![ex3](/assets/ex3.png)
 
 
 
@@ -169,21 +169,21 @@ L2: num := r1                   -- 변수 num에 입력값 저장
 - r1 ~ r8과 f1~f4로 접근 가능
 - 이외에 pc 레지스터가 있음
 - 최종 실행에 의해 수정된 값은 빨간색으로 표시됨  
-![ex4]({{ site.url }}/assets/ex4.png)
+![ex4](/assets/ex4.png)
 
 ### (2) 연산 기능
-1. 지정연산
-  * int 지정 : r1 := r2 또는 r1 := 3 또는 r1 := int 연산식
-  * float 지정 : f1 := f2 또는 f1 := 4.0 또는 f1 := float 연산식
-2. 사칙연산
-  * int 연산식 : r1 + r2 또는 r1 + 2 (+, -, *, /, %)
-  * float 연산식 : f1 + f2 또는 f1 * 2.0 (+, -, *, /)
-  * 동일한 타입(int, float)끼리만 연산 가능하고 결과도 동일한 타입이 됨
-3. 비교연산
-  * int 비교식 : r1 < r2 또는 r1 < 2 (==, !=, <. <=. >, >=)
-  * float 비교식 : f1 < f2 또는 f1 < 2.0 (==, !=, <. <=. >, >=)
-  * 동일한 타입(int, float)끼리만 비교 가능, 결과는 참 또는 거짓
-4. 타입변환연산
-  * 같은 타입만 연산이 가능하므로 int와 float 간 변환이 필요하게 된다. 레지스터의 값을 다른 타입으로 변환할 수 있다.
-  * int에서 float로 변환 : f1 := r1
-  * float에서 int로 변환 : r1 := f1
+ 1. 지정연산
+&ensp;&ensp;* int 지정 : r1 := r2 또는 r1 := 3 또는 r1 := int 연산식
+&ensp;&ensp;* float 지정 : f1 := f2 또는 f1 := 4.0 또는 f1 := float 연산식
+ 2. 사칙연산
+&ensp;&ensp;* int 연산식 : r1 + r2 또는 r1 + 2 (+, -, *, /, %)
+&ensp;&ensp;* float 연산식 : f1 + f2 또는 f1 * 2.0 (+, -, *, /)
+&ensp;&ensp;* 동일한 타입(int, float)끼리만 연산 가능하고 결과도 동일한 타입이 됨
+ 3. 비교연산
+&ensp;&ensp;* int 비교식 : r1 < r2 또는 r1 < 2 (==, !=, <. <=. >, >=)
+&ensp;&ensp;* float 비교식 : f1 < f2 또는 f1 < 2.0 (==, !=, <. <=. >, >=)
+&ensp;&ensp;* 동일한 타입(int, float)끼리만 비교 가능, 결과는 참 또는 거짓
+ 4. 타입변환연산
+&ensp;&ensp;* 같은 타입만 연산이 가능하므로 int와 float 간 변환이 필요하게 된다. 레지스터의 값을 다른 타입으로 변환할 수 있다.
+&ensp;&ensp;* int에서 float로 변환 : f1 := r1
+&ensp;&ensp;* float에서 int로 변환 : r1 := f1
