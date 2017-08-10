@@ -4,8 +4,7 @@ LPAS: Little Pseudo Assembly Language Simulator
 ## Index
 
 
-## Intro  
-  
+## Intro Little Pseudo Assembly Language
 &nbsp;&nbsp;**슈도 어셈블리어**는 PLP(Programming Language Pragmatics) 교재에서 소개하고 있는  
 어셈블리어로 **특정 기계어에 종속되지 않는 형태로 어셈블리코드를 기술할 수 있게 해주는 언어**이다. 
 또한 고급 프로그래밍 언어 형태의 지정문이나 if 구문을 사용하여 가독성을 높였다.  
@@ -77,7 +76,7 @@ L2: num := r1                   -- 변수 num에 입력값 저장
 - 빈줄이나 여분의 whitespace 지원 가능
 
   
-## Little Pseudo Assembly Language 작성 요령
+## LPA 작성 요령
 ### (1) LPA 언어 소개
 - 어휘의 구성  
 &ensp;&ensp;o 레지스터  
