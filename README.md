@@ -172,18 +172,18 @@ L2: num := r1                   -- 변수 num에 입력값 저장
 ![ex4](/assets/ex4.png)
 
 ### (2) 연산 기능
- 1. 지정연산
+ 1. 지정연산  
 &ensp;&ensp;* int 지정 : r1 := r2 또는 r1 := 3 또는 r1 := int 연산식
 &ensp;&ensp;* float 지정 : f1 := f2 또는 f1 := 4.0 또는 f1 := float 연산식
- 2. 사칙연산
+ 2. 사칙연산  
 &ensp;&ensp;* int 연산식 : r1 + r2 또는 r1 + 2 (+, -, *, /, %)
 &ensp;&ensp;* float 연산식 : f1 + f2 또는 f1 * 2.0 (+, -, *, /)
 &ensp;&ensp;* 동일한 타입(int, float)끼리만 연산 가능하고 결과도 동일한 타입이 됨
- 3. 비교연산
+ 3. 비교연산  
 &ensp;&ensp;* int 비교식 : r1 < r2 또는 r1 < 2 (==, !=, <. <=. >, >=)
 &ensp;&ensp;* float 비교식 : f1 < f2 또는 f1 < 2.0 (==, !=, <. <=. >, >=)
 &ensp;&ensp;* 동일한 타입(int, float)끼리만 비교 가능, 결과는 참 또는 거짓
- 4. 타입변환연산
+ 4. 타입변환연산  
 &ensp;&ensp;* 같은 타입만 연산이 가능하므로 int와 float 간 변환이 필요하게 된다. 레지스터의 값을 다른 타입으로 변환할 수 있다.
 &ensp;&ensp;* int에서 float로 변환 : f1 := r1
 &ensp;&ensp;* float에서 int로 변환 : r1 := f1
