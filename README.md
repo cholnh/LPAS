@@ -101,20 +101,44 @@ L2: num := r1                   -- 변수 num에 입력값 저장
 &ensp;&ensp;&ensp;&ensp;-&ensp;& (주소연산), *(간접접근연산)  
   
   
-- 구문 구조
-&ensp;&ensp;o 기본 구조
-&ensp;&ensp;&ensp;&ensp;-&ensp;program
-&ensp;&ensp;&ensp;&ensp;-&ensp;...
-&ensp;&ensp;&ensp;&ensp;-&ensp;end
-&ensp;&ensp;&ensp;&ensp;-&ensp;문장의 연속 : 문장의 종류는 초기화, 지정, goto, if..goto, print, input
-&ensp;&ensp;o 변수 초기화부분
-&ensp;&ensp;&ensp;&ensp;-&ensp;변수 초기화 : 변수 이름 := 값
-&ensp;&ensp;&ensp;&ensp;-&ensp;변수 이름에 해당하는 메모리가 할당되고 그 값으로 초기화도니다
-&ensp;&ensp;&ensp;&ensp;-&ensp;메모리 할당은 앞에서부터 차례로 할당되며 주소는 1씩 증가한다
-&ensp;&ensp;&ensp;&ensp;-&ensp;값이 정수면 정수 메모리, 실수면 실수 메모리가 할당된다
-&ensp;&ensp;o 배열 선언 : 타입과 이름, 크기로 선언
-&ensp;&ensp;&ensp;&ensp;-&ensp;해당 타입으로 크기만큼 배열이 메모리에 할당된다
-&ensp;&ensp;&ensp;&ensp;-&ensp;배열은 주소+오프셋으로 간접접근 가능한다
-&ensp;&ensp;&ensp;&ensp;-&ensp;값은 0으로 할당된다
-&ensp;&ensp;o 계산부
-&ensp;&ensp;&ensp;&ensp;-&ensp;지정문을 이용하여 값을 지정, 또는 계산할 수 있다
+- 구문 구조  
+&ensp;&ensp;o 기본 구조  
+&ensp;&ensp;&ensp;&ensp;-&ensp;program  
+&ensp;&ensp;&ensp;&ensp;-&ensp;...  
+&ensp;&ensp;&ensp;&ensp;-&ensp;end  
+&ensp;&ensp;&ensp;&ensp;-&ensp;문장의 연속 : 문장의 종류는 초기화, 지정, goto, if..goto, print, input  
+&ensp;&ensp;o 변수 초기화부분  
+&ensp;&ensp;&ensp;&ensp;-&ensp;변수 초기화 : 변수 이름 := 값  
+&ensp;&ensp;&ensp;&ensp;-&ensp;변수 이름에 해당하는 메모리가 할당되고 그 값으로 초기화도니다  
+&ensp;&ensp;&ensp;&ensp;-&ensp;메모리 할당은 앞에서부터 차례로 할당되며 주소는 1씩 증가한다  
+&ensp;&ensp;&ensp;&ensp;-&ensp;값이 정수면 정수 메모리, 실수면 실수 메모리가 할당된다  
+&ensp;&ensp;o 배열 선언 : 타입과 이름, 크기로 선언  
+&ensp;&ensp;&ensp;&ensp;-&ensp;해당 타입으로 크기만큼 배열이 메모리에 할당된다  
+&ensp;&ensp;&ensp;&ensp;-&ensp;배열은 주소+오프셋으로 간접접근 가능한다  
+&ensp;&ensp;&ensp;&ensp;-&ensp;값은 0으로 할당된다  
+&ensp;&ensp;o 계산부  
+&ensp;&ensp;&ensp;&ensp;-&ensp;지정문을 이용하여 값을 지정, 또는 계산할 수 있다  
+&ensp;&ensp;&ensp;&ensp;-&ensp;계산은 사칙연산과 % 연산을 이용할 수 있으며, 레지스터나 값으로 계산하여 레지스터에 저장만 가능하다  
+&ensp;&ensp;&ensp;&ensp;-&ensp;모든 계산이나 지정은 동일한 타입이어야 한다  
+&ensp;&ensp;o 타입 변환  
+&ensp;&ensp;&ensp;&ensp;-&ensp;다른 타입 간의 계산이 필요한 경우 명시적으로 타입을 변환해 주어야 한다  
+&ensp;&ensp;&ensp;&ensp;-&ensp;타입 변환은 레지스터의 값을 다른 타입의 레지스터에 넣음으로써 가능  
+&ensp;&ensp;&ensp;&ensp;-&ensp;r1 := f2 또는 f3 := r4  
+&ensp;&ensp;o 라벨과 goto  
+&ensp;&ensp;&ensp;&ensp;-&ensp;문장 왼쪽에 라벨:이 나타나면 해당 위치를 점프할 대상으로 기억한다  
+&ensp;&ensp;&ensp;&ensp;-&ensp;goto 뒤에 라벨이 나타나면 해당 위치로 점프하게 된다  
+&ensp;&ensp;&ensp;&ensp;-&ensp;goto 앞에 if 조건식이 나올 수 있음 : 조건식이 만족할 때 점프하게 된다  
+&ensp;&ensp;o 입출력  
+&ensp;&ensp;&ensp;&ensp;-&ensp;input 레지스터 : 레지스터에 값을 입력 (정수 또는 실수)  
+&ensp;&ensp;&ensp;&ensp;-&ensp;print 레지스터 : 레지스터의 값을 출력  
+&ensp;&ensp;&ensp;&ensp;-&ensp;print 값 : 값을 출력  
+&ensp;&ensp;&ensp;&ensp;-&ensp;print “문자열” : 문자열 출력 (줄바꿈 없음)  
+&ensp;&ensp;o 주소의 계산  
+&ensp;&ensp;&ensp;&ensp;-&ensp;배열은 인덱스는 지원되지 않고 주소 접근으로 지원  
+&ensp;&ensp;&ensp;&ensp;-&ensp;레지스터에 배열주소 지정 : r1 := &id  
+&ensp;&ensp;&ensp;&ensp;-&ensp;배열 주소 접근은 *r1으로  
+&ensp;&ensp;o 주소를 이용한 로드 & 스토어  
+&ensp;&ensp;&ensp;&ensp;-&ensp;레지스터의 주소 값으로 접근 : 그 주소에 우변의 값을 저장  
+&ensp;&ensp;&ensp;&ensp;-&ensp;메모리 타입과 우변식 타입이 다르면 타입 오류 발생  
+&ensp;&ensp;&ensp;&ensp;-&ensp;*r1 := r2 또는 *r1 := f2, *r1 := 3.0, r2 := *r1  
+&ensp;&ensp;&ensp;&ensp;-&ensp;배열 원소의 주소는 배열주소 + 오프셋(정수 레지스터)로 표시  
