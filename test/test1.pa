@@ -1,0 +1,11 @@
+program
+	int a[10]
+	float b[5]
+	c := 5
+	r1 := 0
+	r2 := &a
+	r3 := r2
+	r7 := &b
+	r8 := r7
+	s := r6
+end

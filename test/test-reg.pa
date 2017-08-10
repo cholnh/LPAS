@@ -1,0 +1,23 @@
+program
+	age := 5
+	bound := 10
+	cnt := 2.0
+	r1 := age
+	r2 := bound
+	r3 := 3
+L1:	r1 := r1 + 1
+	r2 := r2 + 1
+	r3 := r3 + 1
+	if (r2 < 15) goto L1
+	print "r1 = "
+	print r1
+	print "r2 = "
+	print r2
+	print "r3 = "
+	print r3
+	age := r1
+	b := r2
+	f1 := r3
+	cnt := f1
+	print f1
+end
