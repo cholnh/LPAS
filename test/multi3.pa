@@ -1,0 +1,19 @@
+-- int num
+-- input num
+-- if (num % 3 == 0)
+--     print "3의 배수임"
+-- else 
+--     print "3의 배수가 아님"
+
+
+
+?program
+	input r1				-- input 레지스터에 값 입력
+	r2 := 3 				-- 루프 인덱스 변수 
+	r3 := r1 % r2			-- 입력값 % 3 계산
+	if ( r3 == 0 ) goto L1 	-- 3의 배수면 L1으로 점프
+	print "3의 배수가 아님"			
+	goto L2				-- if 문 다음으로 점프
+L1:	print "3의 배수임"
+L2:	num := r1				-- 변수 a에 입력값 저장
+end

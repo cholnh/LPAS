@@ -1,0 +1,21 @@
+program
+-- sum = 0;
+-- input num;
+-- for (i = 0; i < num; i++)
+--    sum := sum + i
+-- print num + "까지의 sum = " + sum
+--
+	num := 5				-- 변수 초기화
+	r1 := 0 				-- 루프 인덱스 변수
+	input r2	 			-- 메모리에서 변수값 로드
+	r3 := 0 -- sum			-- 레지스터 값 설정
+	goto L1				-- 무조건 goto
+L2:	r3 := r3 + r1			-- 레지스터 연산
+	r1 := r1 + 1			-- 레지스터 연산
+L1:	if (r1 < r2) goto L2 	-- 레지스터 비교 & 조건부 점프
+	num := r2
+	sum := r3				-- 레지스터 값 변수에 저장
+	print r2
+	print "까지의 sum = " 	-- 문자열 출력
+	print r3				-- 레지스터 출력
+end

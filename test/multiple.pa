@@ -1,0 +1,36 @@
+-- input num;
+-- input div;
+-- cnt = 0;
+-- for (i=1; i<num; i++)
+--    if (i%div == 0) {
+--      print div + ", "
+--      cnt++;
+--    }
+-- print num + "까지 " + div + "의 배수는 " + cnt + "개입니다.\n"
+--
+--
+
+?program
+	cnt := 0
+	input r1
+	input r2
+	num := r1
+	div := r2
+	r5 := cnt
+	r3 := 1
+	goto L1
+L2:	r4 := r3 % r2
+	if (r4 != 0) goto L3 
+	print r3
+	print ", "
+	r5 := r5 + 1
+L3:	r3 := r3 + 1
+L1:	if (r3 < r1) goto L2 
+	cnt := r5
+	print r1
+	print "까지 "
+	print r2
+	print "의 배수는 "
+	print r5
+	print "개입니다.\n"
+end

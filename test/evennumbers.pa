@@ -1,0 +1,20 @@
+-- int a = 10;
+-- int i;
+-- for (i=0; i < a; i++)
+--   if (i % 2 == 0) 
+--      print i + " ";
+-- print "\n"
+
+?program
+	a := 10				-- 변수 a 초기화
+	r1 := 0 				-- 루프 인덱스 변수
+	r2 := a -- a 			-- 메모리에서 변수값 로드
+L4:	goto L1				-- for 문은 끝으로 무조건 goto로 시작
+L2:	r3 := r1 % 2			-- 레지스터 연산
+	if ( r3 != 0 ) goto L3 	-- 레지스터 비교 & 조건부 점프
+	print r1				-- 레지스터 출력
+	print ", "
+L3:	r1 := r1 + 1			-- 레지스터 연산
+L1:	if ( r1 < r2 ) goto L2 	-- 루프 반복할 조건 비교 & 조건부 점프
+	print "\n"
+end
