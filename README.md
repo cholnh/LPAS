@@ -215,3 +215,119 @@ L2: num := r1                   -- 변수 num에 입력값 저장
 * print “문자열” -- 문자열 그대로 출력창에 출력함 (줄바꾸지 않음)
 * print r1 — int 타입의 값을 출력창에 출력함 (줄바꿈)
 * print f1 — float 타입의 값을 출력창에 출력함 (줄바꿈)
+
+
+## LPA 프로그램의 오류 처리 기능
+&nbsp;&nbsp;LPA 프로그램의 오류는 **정적 오류**와 **동적 오류**로 나누어 볼 수 있으며 정적 오류는 구문  
+오류와 타입 오류, 이름이 잘못 사용된 경우로 나누어 볼 수 있다. 컴파일러에 의해 생성된  
+어셈블리 프로그램은 컴파일러에 의해 구문 분석 및 의미 분석이 끝난 후 코드 생성되었다면  
+이러한 정적 오류가 발생할 일은 없을 것이다. 그러나 사람이 직접 작성한 어셈블리 코드는  
+이러한 오류를 가질 수 있다. 각 오류의 종류에 대해 살펴본다.  
+
+
+### 구문 오류
+- 문법에 맞지 않는 경우, 예를 들면 프로그램은 `program`이라는 키워드로 시작하여 `end` 키워드로 끝나야 한다.  
+한 줄은 레이블을 가질 수 있고 탭으로 시작하여 지정이나 `if`, `goto` 등으로 시작해야 한다.  
+- 어휘 조건으로 레지스터의 번호가 맞는지 검사하고 나머지는 이름으로 취급된다.
+- 문법에 따르면 지정 연산 `:=`의 우측에는 `r1 + r2` 또는` r1 + 3`은 문법에 맞지만 `3 + r1`은 오류가 난다.  
+연산자의 좌변과 우변의 타입이 다른 경우도 구문 오류가 나게 된다.  
+```
+stmt:reg ':=' expr
+expr: RREG ('+'|'-'|'*'|'/'|'%') ( RREG | INT ) -- arithi
+    | FREG ('+'|'-'|'*'|'/'|'%') ( FREG | FLOAT ) -- arithf
+    | RREG ('<'|'=='|'<='|'>='|'!='|'>') ( RREG | INT ) -- ifi
+    | FREG ('<'|'=='|'<='|'>='|'!='|'>') ( FREG | FLOAT );-- iff
+```
+- 스토어 명령문의 지정 우변이나 `print` 다음에는 연산을 포함한 수식이 올 수 없고 레지스터 하나만 올 수 있다.  
+`print` 문의 경우 문자열이 올 수 있다.
+
+### 타입 오류
+타입 오류는 문법에 의해 구문적으로 걸러지는 경우도 있으나 메모리를 사용하면서 발생하는 타입 오류는 실행 시에 발견된다.  
+예를 들면 다음 코드에서는  
+```
+a := 3.0
+...
+r1 := a
+```
+정수 레지스터에 실수형 메모리 유닛의 값을 로드하므로 오류가 발생하게 된다.  
+
+### 이름 오류 
+LPA에서는 변수의 선언이 없으므로 `undeclared identifier`와 `uninitialized identifier`가 구별되지 않는다.   
+미리 초기화되지 않은 변수가 레지스터에 로드되면 이름 오류가 발생하게 된다. 또한 배열의 이름을 바로 레지스터에   
+로드한 경우도 오류가 발생한다. 한번 스토어 된 타입과 다른 데이터를 스토어하는 경우 타입 오류에 해당한다.  
+
+
+## LPA 문법
+
+```
+prog: 'program' NEWLINE ( stmts ) 'end' ;
+stmts: ( ('\t')? LINE_COMMENT? NEWLINE
+          | ( LABEL ':' )? '\t' stmt LINE_COMMENT? NEWLINE
+        )+ ;
+stmt: arithstmt
+      | iostmt
+      | ifstmt
+      | arrstmt
+      | asgnstmt
+      | loadstorestmt
+      | 'goto' t=BEL
+      | RREG ':=' FREG
+      | FREG ':=' RREG;
+arithstmt: (RREG | FREG) ':=' expr;
+ifstmt: 'if' '(' expr ')' GOTO LABEL;
+arrstmt: ('int' | 'float') ID '[' INT ']'
+      | RREG ':=' '&' ID;
+loadstorestmt: (RREG | FREG) ':=' ID
+                | ID ':=' (RREG | FREG)
+                | '*' RREG ':=' RREG      // storeai
+                | '*' RREG ':=' FREG      // storeaf
+                | RREG ':=' '*' RREG      // loadai
+                | FREG ':=' '*' RREG;     // loadaf
+asgnstmt: RREG ':=' (RREG | INT)
+        | FREG ':=' (FREG | FLOAT)
+        | ID ':=' (INT | FLOAT);
+iostmt: 'print' STRING_LITERAL
+        | 'print' (RREG | FREG)
+        | 'input' (RREG | FREG);
+expr: RREG ('+'|'-'|'*'|'/'|'%') ( RREG | INT )
+        | FREG ('+'|'-'|'*'|'/'|'%') (FREG | FLOAT)
+        | RREG ('<'|'=='|'<='|'>='|'!='|'>') ( RREG | INT)
+        | FREG ('<'|'=='|'<='|'>='|'!='|'>') (FREG | FLOAT);
+NEWLINE : [\n\r]+ ;
+RREG : 'r'[1-8] ;
+FREG : 'f'[1-4];
+FLOAT: [0-9]+'.'[0-9]*;
+INT : [0-9]+ ;
+ID : [a-z];   // 변수 이름은 영문자 소문자 알파벳 한 글자
+LABEL: 'L'[1-9];
+```
+
+
+## 시뮬레이터 프로그램 사용법
+
+### 화면 구성
+- 파일메뉴와 툴바
+- 편집창
+- 스토리지뷰
+- 로그/출력/오류창
+![ex7](/assets/ex7.png)
+
+
+### 메뉴
+![ex8](/assets/ex8.png)
+
+
+### 툴바
+![ex9](/assets/ex9.png)
+
+
+### 파일 편집창
+![ex10](/assets/ex10.png)  
+
+
+![ex11](/assets/ex11.png)
+
+
+![ex12](/assets/ex12.png)
+
+
