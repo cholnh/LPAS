@@ -4,9 +4,9 @@ LPAS: Little Pseudo Assembly Language Simulator
 ## Index
 
 
-## Intro
-
- 슈도 어셈블리어는 PLP(Programming Language Pragmatics) 교재에서 소개하고 있는
+## Intro  
+  
+<space>슈도 어셈블리어는 PLP(Programming Language Pragmatics) 교재에서 소개하고 있는
 어셈블리어로 특정 기계어에 종속되지 않는 형태로 어셈블리코드를 기술할 수 있게 해주는 언
 어이다. 또한 고급 프로그래밍 언어 형태의 지정문이나 if 구문을 사용하여 가독성을 높였다.  
 
