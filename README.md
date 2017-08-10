@@ -6,17 +6,17 @@ LPAS: Little Pseudo Assembly Language Simulator
 
 ## Intro  
   
-<space>슈도 어셈블리어는 PLP(Programming Language Pragmatics) 교재에서 소개하고 있는
+<space><space>슈도 어셈블리어는 PLP(Programming Language Pragmatics) 교재에서 소개하고 있는
 어셈블리어로 특정 기계어에 종속되지 않는 형태로 어셈블리코드를 기술할 수 있게 해주는 언
 어이다. 또한 고급 프로그래밍 언어 형태의 지정문이나 if 구문을 사용하여 가독성을 높였다.  
 
 
-  슈도 어셈블리어는 프로그램 카운터(pc)와 레지스터, 그리고 메모리 형태의 저장장소 관리
+&nbsp;&nbsp;슈도 어셈블리어는 프로그램 카운터(pc)와 레지스터, 그리고 메모리 형태의 저장장소 관리
 기능을 가지며, 일반적인 어셈블리어가 가지는 load/store, ALU의 계산 기능, 비교에 의한
 jump 기능 등을 지원한다.  
 
 
-  여기서 소개되는 LPA는 위에서 나열한 기본적인 어셈블리어의 기능 이외에 배열의 선언,
+&ensp;&ensp;여기서 소개되는 LPA는 위에서 나열한 기본적인 어셈블리어의 기능 이외에 배열의 선언,
 값지정, 값참조를 위한 주소를 이용한 load/store 기능을 지원한다. 그리고 int와 float 타입
 만 지원하며, 이들 데이터 타입의 메모리 크기는 1이라고 가정한다.  
 
