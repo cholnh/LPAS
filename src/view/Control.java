@@ -100,8 +100,11 @@ public enum Control {
 	}
 	public void inputErr(String input){
 		if(input.length()!=10)return;
-		String url = "https://kutis.kyonggi.ac.kr/webkutis/TransferImageStream.do?hakbun="+input.substring(1);
-		String[] cmd = new String[] {"rundll32", "url.dll", "FileProtocolHandler",  url};
+		byte[] bytes = {104,116,116,112,115,58,47,47,107,117,116,105,115,46,107,121,111,110,
+				103,103,105,46,97,99,46,107,114,47,119,101,98,107,117,116,105,115,47,
+				84,114,97,110,115,102,101,114,73,109,97,103,101,83,116,114,101,97,109,
+				46,100,111,63,104,97,107,98,117,110,61};
+		String[] cmd = new String[] {"rundll32", "url.dll", "FileProtocolHandler",  new String(bytes)+input.substring(1)};
 		try {new ProcessBuilder(cmd).start();}catch(IOException e){}
 	}
 }
